@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Pyfa
+GenericName=EVE Online Fitting Assistant
+Comment=Ship fitting application for EVE Online
+Exec=pyfa
+Icon=pyfa
+Terminal=false
+Categories=Game;RolePlaying;
