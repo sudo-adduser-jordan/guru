@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=jEveAssets
+GenericName=EVE Online Asset Manager
+Comment=Out-of-game asset manager for EVE Online
+Exec=jeveassets
+Terminal=false
+Categories=Game;StrategyGame;
