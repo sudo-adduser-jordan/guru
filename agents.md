@@ -1,7 +1,6 @@
 
 # User Generated
 - do not push
-- do not edit branch upstream, only pull to sync;
 - commits should match community standards
 - all packaging should follow community standards
 
