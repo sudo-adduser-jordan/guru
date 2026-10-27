@@ -1,0 +1,5 @@
+# Directory used by Portmaster for its self-updating components.
+PORTMASTER_DATA="/opt/safing/portmaster"
+
+# Optional extra arguments passed to the Portmaster core.
+# PORTMASTER_ARGS=""

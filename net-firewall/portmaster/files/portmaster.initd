@@ -1,0 +1,16 @@
+#!/sbin/openrc-run
+# shellcheck shell=sh
+
+description="Portmaster network security service"
+command="/opt/safing/portmaster/portmaster-start"
+command_args="--data ${PORTMASTER_DATA:-/opt/safing/portmaster} core -- ${PORTMASTER_ARGS}"
+command_background="yes"
+pidfile="/run/${RC_SVCNAME}.pid"
+
+depend() {
+	need net
+}
+
+stop_post() {
+	"${command}" --data "${PORTMASTER_DATA:-/opt/safing/portmaster}" recover-iptables
+}
