@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>sudo.sendmail.jordan@gmail.com</email>
+		<name>Jordan</name>
+	</maintainer>
+	<longdescription>
+		ClamUI is a GTK4/libadwaita desktop interface for the ClamAV
+		antivirus scanner, including on-demand scans, quarantine management,
+		VirusTotal lookups, and ClamAV configuration editing.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">linx-systems/clamui</remote-id>
+		<bugs-to>https://github.com/linx-systems/clamui/issues</bugs-to>
+	</upstream>
+</pkgmetadata>
