@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
-<pkgmetadata>
-	<!-- maintainer-needed -->
-	<upstream>
-		<remote-id type="github">robert7/nixnote2</remote-id>
-		<bugs-to>https://github.com/robert7/nixnote2/issues</bugs-to>
-	</upstream>
-</pkgmetadata>

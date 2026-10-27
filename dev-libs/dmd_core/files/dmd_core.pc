@@ -1,8 +1,0 @@
-prefix=/usr
-exec_prefix=${prefix}
-libdir=${exec_prefix}/lib
-
-Name: dmd_core
-Description: Core logic for an AT&T / Teletype DMD 5620 terminal emulator
-Version: %VERSION%
-Libs: ${libdir}/libdmd_core.a

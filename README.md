@@ -1,32 +1,86 @@
-<p align="center">
-<img src="guru.svg" alt="logo">
-</p>
+# jentoo overlay
 
-# The GURU Project Repository
+Personal Gentoo overlay maintained by jordan, tracking
+[gentoo/guru](https://github.com/gentoo/guru) upstream plus a small set of
+custom packages.
 
-[![pkgcheck](https://github.com/gentoo/guru/actions/workflows/pkgcheck.yml/badge.svg)](https://github.com/gentoo/guru/actions?query=workflow%3Apkgcheck)
-[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](https://wiki.gentoo.org/wiki/Project:GURU/Information_for_Contributors)
-[![chat on libera](https://img.shields.io/badge/chat-on%20libera-brightgreen.svg)](https://web.libera.chat/#gentoo-guru)
+Upstream base: `1c914d790` (`net-im/chatterino: update expected-lite bundled
+library`, 2026-10-25).
 
-**The official repository for new Gentoo packages, maintained collaboratively by Gentoo users.**
+## Packages
 
-This README contains some additional useful information for GURU contributors, such as common mistakes, frequently asked questions and other tips and tricks.
+| Package | Version | Description |
+|---|---|---|
+| `app-antivirus/clamui` | 0.4.1 | Modern GTK4/libadwaita graphical interface for ClamAV ([upstream](https://github.com/linx-systems/clamui)) |
+| `app-antivirus/clamui-bin` | 0.4.1 | AppImage build of ClamUI, the GTK4/libadwaita ClamAV frontend ([upstream](https://github.com/linx-systems/clamui)) |
+| `app-misc/desktop-plus-bin` | 3.6.8.1 | GitHub Desktop fork with advanced functionality and improvements ([upstream](https://github.com/desktop-plus/desktop-plus)) |
+| `games-util/jeveassets-bin` | 8.2.2 | Out-of-game asset manager for EVE Online ([upstream](https://github.com/GoldenGnu/jeveassets)) |
+| `games-util/pyfa` + `games-util/pyfa-bin` | 2.69.3 | Python fitting assistant, a ship fitting tool for EVE Online ([upstream](https://github.com/pyfa-org/Pyfa)) |
+| `net-firewall/gufw` | 26.04 | Graphical user interface for ufw ([upstream](https://github.com/costales/gufw)) |
+| `net-firewall/portmaster` | 2.2.3 | Application firewall and network monitor ([upstream](https://github.com/safing/portmaster)) |
+| `net-vpn/pvpn` | 0.2.10 | Fast, lightweight Proton VPN client for Linux with a terminal UI, built from source ([upstream](https://github.com/YourDoritos/pVPN)) |
+| `net-vpn/pvpn-bin` | 0.2.10 | Fast, lightweight Proton VPN client for Linux with a terminal UI, prebuilt ([upstream](https://github.com/YourDoritos/pVPN)) |
+| `sys-power/wattseal` + `sys-power/wattseal-bin` | 1.0.6 | Real-time PC power consumption monitor, per-app and per-component ([upstream](https://github.com/Daminoup88/WattSeal)) |
 
-The [GURU rules](https://wiki.gentoo.org/wiki/Project:GURU#Rules), and the Gentoo [developer manual](https://devmanual.gentoo.org/) take precedence over any information here.
+### Source and binary variants
 
-*See [wiki.gentoo.org/wiki/Project:GURU](https://wiki.gentoo.org/wiki/Project:GURU) for more information on the project.*
+| Package | Source | `-bin` | Pair? |
+|---|---|---|---|
+| `app-antivirus/clamui` | ✅ | ✅ (`clamui-bin`) | ✅ |
+| `app-misc/desktop-plus-bin` | ❌ | ✅ | bin only |
+| `games-util/jeveassets-bin` | ❌ | ✅ | bin only |
+| `games-util/pyfa` | ✅ | ✅ (`pyfa-bin`) | ✅ |
+| `net-firewall/gufw` | ✅ | ❌ | source only |
+| `net-firewall/portmaster` | ❌ | ❌ (already binary) | single package |
+| `net-vpn/pvpn` | ✅ | ✅ (`pvpn-bin`) | ✅ |
+| `sys-power/wattseal` | ✅ | ✅ (`wattseal-bin`) | ✅ |
 
-## Useful Links <a name="links"></a>
+- `desktop-plus-bin` and `jeveassets-bin` are bin-only: their upstream source
+  builds rely on Electron/yarn and Maven respectively, and are not packaged
+  here.
+- `gufw` has no upstream binary release, so there is no `gufw-bin`.
+- `portmaster` is already a binary launcher package; it downloads its
+  components at runtime, so a separate `-bin` variant would duplicate it.
+- `clamui`, `pvpn`, `pyfa`, and `wattseal` ship both source and binary variants.
 
-- https://wiki.gentoo.org/wiki/Project:GURU
-- https://wiki.gentoo.org/wiki/Project:GURU/Information_for_Contributors
-- https://wiki.gentoo.org/wiki/Project:GURU/Information_for_Trusted_Contributors
-- https://wiki.gentoo.org/wiki/Basic_guide_to_write_Gentoo_Ebuilds
-- https://devmanual.gentoo.org/quickstart
-- https://devmanual.gentoo.org/ebuild-writing
-- https://devmanual.gentoo.org/ebuild-writing/variables
-- https://devmanual.gentoo.org/function-reference
-- https://devmanual.gentoo.org/function-reference/install-functions
-- https://dev.gentoo.org/~mgorny/python-guide/eclass.html
-- [GURU outdated packages](https://repology.org/projects/?inrepo=gentoo_ovl_guru&outdated=on)
-- [GURU Bugs](https://bugs.gentoo.org/buglist.cgi?f1=product&f2=component&list_id=7042152&o1=equals&query_format=advanced&resolution=---&v1=GURU&v2=Package%20issues)
+`main` contains all custom packages; `upstream` tracks `gentoo/guru` master
+and is pull-only. Commits are one package per commit.
+`lazydocker` was dropped as a custom package after it merged upstream.
+
+## Using this overlay
+
+With `eselect-repository` (`enable` only works for Gentoo-hosted
+overlays, so third-party overlays use `add`):
+
+```sh
+eselect repository add jentoo git https://github.com/sudo-adduser-jordan/jentoo.git
+emaint sync -r jentoo
+emerge -avq app-antivirus/clamui net-firewall/gufw net-firewall/portmaster app-misc/desktop-plus-bin net-vpn/pvpn-bin sys-power/wattseal games-util/jeveassets-bin games-util/pyfa
+```
+
+Or manually via `/etc/portage/repos.conf/jentoo.conf`:
+
+```ini
+[jentoo]
+location = /var/db/repos/jentoo
+sync-type = git
+sync-uri = https://github.com/sudo-adduser-jordan/jentoo.git
+auto-sync = yes
+```
+
+Then:
+
+```sh
+emaint sync -r jentoo
+```
+
+## Developing
+
+```sh
+pkgcheck scan -- <category>/<package>
+pkgdev manifest -- <category>/<package>
+```
+
+Branch workflow per `agents.md`: do not push, do not edit the `upstream`
+branch (pull only to sync), one packaging commit per package, and `main`
+contains all custom packages.

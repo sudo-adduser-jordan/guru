@@ -1,3 +1,0 @@
-# Add INCUS_UI=/usr/share/incus-ui to the env vars received by incus.service so it knows about it
-[Service]
-Environment="INCUS_UI=/usr/share/incus-ui"

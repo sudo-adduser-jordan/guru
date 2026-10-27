@@ -1,7 +1,0 @@
-set nocompatible
-filetype off
-
-let &rtp = '..,/usr/share/vader,'.$VIMRUNTIME
-
-filetype plugin indent on
-syntax enable
