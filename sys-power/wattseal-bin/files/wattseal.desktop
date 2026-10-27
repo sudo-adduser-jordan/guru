@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=WattSeal
+GenericName=Power Monitor
+Comment=Per-app power consumption monitoring
+Exec=wattseal
+Icon=wattseal
+Terminal=false
+Categories=Utility;System;Monitor;
+Keywords=power;energy;monitoring;hardware;
+StartupWMClass=WattSeal
