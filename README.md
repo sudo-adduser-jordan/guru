@@ -13,6 +13,7 @@ library`, 2026-10-25).
 |---|---|---|
 | `app-antivirus/clamui` | 0.4.1 | Modern GTK4/libadwaita graphical interface for ClamAV ([upstream](https://github.com/linx-systems/clamui)) |
 | `app-antivirus/clamui-bin` | 0.4.1 | AppImage build of ClamUI, the GTK4/libadwaita ClamAV frontend ([upstream](https://github.com/linx-systems/clamui)) |
+| `app-containers/lazydocker` | 0.25.2 | The lazier way to manage everything docker ([upstream](https://github.com/jesseduffield/lazydocker)) |
 | `app-misc/desktop-plus-bin` | 3.6.8.1 | GitHub Desktop fork with advanced functionality and improvements ([upstream](https://github.com/desktop-plus/desktop-plus)) |
 | `dev-util/opencode-desktop-bin` | 2.2.0 | Open source AI coding agent, desktop application ([upstream](https://github.com/anomalyco/opencode)) |
 | `games-util/jeveassets-bin` | 8.2.2 | Out-of-game asset manager for EVE Online ([upstream](https://github.com/GoldenGnu/jeveassets)) |
@@ -28,6 +29,7 @@ library`, 2026-10-25).
 | Package | Source | `-bin` | Pair? |
 |---|---|---|---|
 | `app-antivirus/clamui` | ✅ | ✅ (`clamui-bin`) | ✅ |
+| `app-containers/lazydocker` | ✅ | ❌ | source only |
 | `app-misc/desktop-plus-bin` | ❌ | ✅ | bin only |
 | `dev-util/opencode-desktop-bin` | ❌ | ✅ | bin only |
 | `games-util/jeveassets-bin` | ❌ | ✅ | bin only |
@@ -44,10 +46,10 @@ library`, 2026-10-25).
 - `portmaster` is already a binary launcher package; it downloads its
   components at runtime, so a separate `-bin` variant would duplicate it.
 - `clamui`, `pvpn`, `pyfa`, and `wattseal` ship both source and binary variants.
+- `lazydocker` is maintained by jordan in GURU and mirrored here from upstream.
 
 `main` contains all custom packages; `upstream` tracks `gentoo/guru` master
 and is pull-only. Commits are one package per commit.
-`lazydocker` was dropped as a custom package after it merged upstream.
 
 ## Using this overlay
 
@@ -57,7 +59,7 @@ overlays, so third-party overlays use `add`):
 ```sh
 eselect repository add jentoo git https://github.com/sudo-adduser-jordan/jentoo.git
 emaint sync -r jentoo
-emerge -avq app-antivirus/clamui net-firewall/gufw net-firewall/portmaster app-misc/desktop-plus-bin dev-util/opencode-desktop-bin net-vpn/pvpn-bin sys-power/wattseal games-util/jeveassets-bin games-util/pyfa
+emerge -avq app-antivirus/clamui app-containers/lazydocker net-firewall/gufw net-firewall/portmaster app-misc/desktop-plus-bin dev-util/opencode-desktop-bin net-vpn/pvpn-bin sys-power/wattseal games-util/jeveassets-bin games-util/pyfa
 ```
 
 Or manually via `/etc/portage/repos.conf/jentoo.conf`:
