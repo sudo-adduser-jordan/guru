@@ -14,6 +14,7 @@ library`, 2026-10-25).
 | `app-antivirus/clamui` | 0.4.1 | Modern GTK4/libadwaita graphical interface for ClamAV ([upstream](https://github.com/linx-systems/clamui)) |
 | `app-antivirus/clamui-bin` | 0.4.1 | AppImage build of ClamUI, the GTK4/libadwaita ClamAV frontend ([upstream](https://github.com/linx-systems/clamui)) |
 | `app-misc/desktop-plus-bin` | 3.6.8.1 | GitHub Desktop fork with advanced functionality and improvements ([upstream](https://github.com/desktop-plus/desktop-plus)) |
+| `dev-util/opencode-desktop-bin` | 2.2.0 | Open source AI coding agent, desktop application ([upstream](https://github.com/anomalyco/opencode)) |
 | `games-util/jeveassets-bin` | 8.2.2 | Out-of-game asset manager for EVE Online ([upstream](https://github.com/GoldenGnu/jeveassets)) |
 | `games-util/pyfa` + `games-util/pyfa-bin` | 2.69.3 | Python fitting assistant, a ship fitting tool for EVE Online ([upstream](https://github.com/pyfa-org/Pyfa)) |
 | `net-firewall/gufw` | 26.04 | Graphical user interface for ufw ([upstream](https://github.com/costales/gufw)) |
@@ -28,6 +29,7 @@ library`, 2026-10-25).
 |---|---|---|---|
 | `app-antivirus/clamui` | ✅ | ✅ (`clamui-bin`) | ✅ |
 | `app-misc/desktop-plus-bin` | ❌ | ✅ | bin only |
+| `dev-util/opencode-desktop-bin` | ❌ | ✅ | bin only |
 | `games-util/jeveassets-bin` | ❌ | ✅ | bin only |
 | `games-util/pyfa` | ✅ | ✅ (`pyfa-bin`) | ✅ |
 | `net-firewall/gufw` | ✅ | ❌ | source only |
@@ -35,9 +37,9 @@ library`, 2026-10-25).
 | `net-vpn/pvpn` | ✅ | ✅ (`pvpn-bin`) | ✅ |
 | `sys-power/wattseal` | ✅ | ✅ (`wattseal-bin`) | ✅ |
 
-- `desktop-plus-bin` and `jeveassets-bin` are bin-only: their upstream source
-  builds rely on Electron/yarn and Maven respectively, and are not packaged
-  here.
+- `desktop-plus-bin` and `opencode-desktop-bin` are bin-only because their
+  upstream source builds rely on Electron/yarn, and `jeveassets-bin` because it
+  is built with Maven; none of those source builds are packaged here.
 - `gufw` has no upstream binary release, so there is no `gufw-bin`.
 - `portmaster` is already a binary launcher package; it downloads its
   components at runtime, so a separate `-bin` variant would duplicate it.
@@ -55,7 +57,7 @@ overlays, so third-party overlays use `add`):
 ```sh
 eselect repository add jentoo git https://github.com/sudo-adduser-jordan/jentoo.git
 emaint sync -r jentoo
-emerge -avq app-antivirus/clamui net-firewall/gufw net-firewall/portmaster app-misc/desktop-plus-bin net-vpn/pvpn-bin sys-power/wattseal games-util/jeveassets-bin games-util/pyfa
+emerge -avq app-antivirus/clamui net-firewall/gufw net-firewall/portmaster app-misc/desktop-plus-bin dev-util/opencode-desktop-bin net-vpn/pvpn-bin sys-power/wattseal games-util/jeveassets-bin games-util/pyfa
 ```
 
 Or manually via `/etc/portage/repos.conf/jentoo.conf`:
