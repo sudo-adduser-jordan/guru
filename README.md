@@ -17,27 +17,27 @@ library`, 2026-10-25).
 | `app-misc/desktop-plus-bin` | 3.6.8.1 | GitHub Desktop fork with advanced functionality and improvements ([upstream](https://github.com/desktop-plus/desktop-plus)) |
 | `dev-util/opencode-desktop-bin` | 2.2.0 | Open source AI coding agent, desktop application ([upstream](https://github.com/anomalyco/opencode)) |
 | `games-util/jeveassets-bin` | 8.2.2 | Out-of-game asset manager for EVE Online ([upstream](https://github.com/GoldenGnu/jeveassets)) |
-| `games-util/pyfa` + `games-util/pyfa-bin` | 2.69.3 | Python fitting assistant, a ship fitting tool for EVE Online ([upstream](https://github.com/pyfa-org/Pyfa)) |
+| `games-util/pyfa` `games-util/pyfa-bin` | 2.69.3 | Python fitting assistant, a ship fitting tool for EVE Online ([upstream](https://github.com/pyfa-org/Pyfa)) |
 | `net-firewall/gufw` | 26.04 | Graphical user interface for ufw ([upstream](https://github.com/costales/gufw)) |
 | `net-firewall/portmaster` | 2.2.3 | Application firewall and network monitor ([upstream](https://github.com/safing/portmaster)) |
 | `net-vpn/pvpn` | 0.2.10 | Fast, lightweight Proton VPN client for Linux with a terminal UI, built from source ([upstream](https://github.com/YourDoritos/pVPN)) |
 | `net-vpn/pvpn-bin` | 0.2.10 | Fast, lightweight Proton VPN client for Linux with a terminal UI, prebuilt ([upstream](https://github.com/YourDoritos/pVPN)) |
-| `sys-power/wattseal` + `sys-power/wattseal-bin` | 1.0.6 | Real-time PC power consumption monitor, per-app and per-component ([upstream](https://github.com/Daminoup88/WattSeal)) |
+| `sys-power/wattseal` `sys-power/wattseal-bin` | 1.0.6 | Real-time PC power consumption monitor, per-app and per-component ([upstream](https://github.com/Daminoup88/WattSeal)) |
 
 ### Source and binary variants
 
-| Package | Source | `-bin` | Pair? |
-|---|---|---|---|
-| `app-antivirus/clamui` | ✅ | ✅ (`clamui-bin`) | ✅ |
-| `app-containers/lazydocker` | ✅ | ❌ | source only |
-| `app-misc/desktop-plus-bin` | ❌ | ✅ | bin only |
-| `dev-util/opencode-desktop-bin` | ❌ | ✅ | bin only |
-| `games-util/jeveassets-bin` | ❌ | ✅ | bin only |
-| `games-util/pyfa` | ✅ | ✅ (`pyfa-bin`) | ✅ |
-| `net-firewall/gufw` | ✅ | ❌ | source only |
-| `net-firewall/portmaster` | ❌ | ❌ (already binary) | single package |
-| `net-vpn/pvpn` | ✅ | ✅ (`pvpn-bin`) | ✅ |
-| `sys-power/wattseal` | ✅ | ✅ (`wattseal-bin`) | ✅ |
+| Package | Source | `-bin` |
+|---|---|---|
+| `app-antivirus/clamui`            | ✅ | ✅ |
+| `app-containers/lazydocker`       | ✅ | ❌ | 
+| `app-misc/desktop-plus-bin`       | ❌ | ✅ |
+| `dev-util/opencode-desktop-bin`   | ❌ | ✅ |
+| `games-util/jeveassets-bin`       | ❌ | ✅ |
+| `games-util/pyfa`                 | ✅ | ✅ |
+| `net-firewall/gufw`               | ✅ | ❌ |
+| `net-firewall/portmaster`         | ❌ | ❌ |
+| `net-vpn/pvpn`                    | ✅ | ✅ |
+| `sys-power/wattseal`              | ✅ | ✅ |
 
 - `desktop-plus-bin` and `opencode-desktop-bin` are bin-only because their
   upstream source builds rely on Electron/yarn, and `jeveassets-bin` because it
