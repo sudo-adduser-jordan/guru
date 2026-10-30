@@ -62,29 +62,9 @@ emaint sync -r jentoo
 emerge -avq app-antivirus/clamui app-containers/lazydocker net-firewall/gufw net-firewall/portmaster app-misc/desktop-plus-bin dev-util/opencode-desktop-bin net-vpn/pvpn-bin sys-power/wattseal games-util/jeveassets-bin games-util/pyfa
 ```
 
-Or manually via `/etc/portage/repos.conf/jentoo.conf`:
-
-```ini
-[jentoo]
-location = /var/db/repos/jentoo
-sync-type = git
-sync-uri = https://github.com/sudo-adduser-jordan/jentoo.git
-auto-sync = yes
-```
-
-Then:
-
-```sh
-emaint sync -r jentoo
-```
-
 ## Developing
 
 ```sh
 pkgcheck scan -- <category>/<package>
 pkgdev manifest -- <category>/<package>
 ```
-
-Branch workflow per `agents.md`: do not push, do not edit the `upstream`
-branch (pull only to sync), one packaging commit per package, and `main`
-contains all custom packages.
